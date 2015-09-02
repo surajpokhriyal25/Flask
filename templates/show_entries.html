@@ -15,7 +15,8 @@
   {% for entry in entries %}
     <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }} 
      <form action="{{ url_for('delete_entry') }}" method="POST">
-                <Button name = "delete" type = "submit" value = "{{ entry.id  }}">Delete</Button>
+                <input type="hidden" name="delete" value="{{ entry.id }}" >
+                <input type="submit" name="delete_entry" value="DELETE" >
             </form>
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>
