@@ -54,7 +54,7 @@ def delete_entry():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
     if request.method == 'POST':
-        g.db.execute('delete from entries where id= ?' int([request.form['delete']])
+        g.db.execute('delete from entries where id= ?', (request.form['delete']))
         g.db.commit()
         flash('Gone. Entry deleted.')
         return redirect(url_for('show_entries'))
